@@ -1,0 +1,592 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: whitesmoke;
+}
+
+#card{
+    width: 95%;
+    margin: 6% auto 0 auto;
+    border: 0.5px solid #4f4f4f;
+    background-color: white;
+    padding: 2%;
+    border-radius: 15px;
+}
+#head{
+    height: 55px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1266f1;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+#card-btn{
+    display: flex;
+    justify-content: center;
+    border: none;
+    background: white;
+    margin-bottom: 3%;
+    /* background-color: red; */
+}
+.correct{
+    font-size: large;
+    color: #04AA6D;
+}
+.wrong{
+    font-size: large;
+    color: rgb(170, 17, 17);
+}
+#home{
+    height: 650px;
+    margin: 8% auto;
+    border: none;
+    background: white;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border-bottom-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+
+}
+
+#start-btn{
+    width: 80%;
+    margin: 0px auto;
+}
+#submit-btn{
+    width: 80%;
+    margin: 0px auto;
+}
+#header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: none;
+    background: white;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    background-color: rgb(197, 194, 194);
+    opacity: 100%;
+}
+#name-initial{
+    width: 40px;
+    height: 40px;
+    /* background-color: rebeccapurple; */
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: large;
+    font-weight: bold;
+    /* color: white; */
+}
+#question-bar {
+    width: 100%;
+    margin: 0% 0% 1% 0%;
+   display: flex;
+   justify-content:space-between;
+   padding-top: 16px;
+   padding-bottom: 16px;
+}
+
+#card-body{
+    padding-bottom: 5%;
+}
+#ans-bar{
+    width: 100%;
+    margin: 10% 0% 1% 0%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+#score{
+    width: 40%;
+    height: 40px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-weight: bold;
+    font-size: large;
+}
+#showAns{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10%;
+    padding-bottom: 10%;
+}
+
+.answers{
+    width: 100%;
+    margin: 3% 0% 3% 0;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+}
+#finishBtn{
+    display: none;
+    width: 50%;
+}
+#nextBtn{
+    /* margin-left: auto; */
+    width: 50%;
+}
+.ans{
+    width: 70%;
+    margin: 0 auto;
+}
+.question{
+    width: 70%;
+    margin-right: 2%;
+    border: none;
+}
+.option{
+   /* margin-left: 0%; */
+   height: 40px;
+   text-transform: uppercase;
+}
+.check{
+    display: none;
+    width: 10%; 
+    height: 40px;
+    padding-left: 3%; 
+    margin-right: -3%;
+    justify-content: center;
+    align-items: center;
+}
+.num{
+    background-color: #F5F5F5;
+    color: #4f4f4f;
+    height: 40px;
+    width: auto;
+    text-transform: uppercase;
+    vertical-align: bottom;
+    border: 0;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 10px 0 rgb(0 0 0 / 10%);
+    font-weight: 500;
+    padding: 0.625rem 1.5rem 0.5rem;
+    line-height: 1.5;
+}
+
+#footer{
+    position: fixed;
+    bottom: 0;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: grey;
+}
+
+.footer-icon{
+    width: 30%;
+    height: 90%;
+    /* background-color: crimson; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: large;
+    color: white;
+    font-weight: bold;
+}
+.sections{
+    width: 90%;
+    height: 100px;
+    border-radius: 30px;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 10px 0 rgb(0 0 0 / 10%);
+    margin: 5% auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: x-large;
+    color: white;
+    font-weight: bold;
+}
+
+#select-options form{
+    width: 90%;
+   height: 70%;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-evenly;
+   /* justify-content: center; */
+   margin: 0px auto;
+}
+
+#select-options{
+    width: 90%;
+    height: 300px;
+    margin: 18% auto;
+    border: none;
+    background: white;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 10px 0 rgb(0 0 0 / 10%);
+
+}
+
+#add-question-option{
+    width: 90%;
+    height: 620px;
+    margin: 8% auto;
+    border: none;
+    /* background: green; */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 10px 0 rgb(0 0 0 / 10%);
+
+}
+
+#add-question-option form{
+    width: 90%;
+   height: 90%;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-evenly;
+   /* justify-content: center; */
+   margin: 0px auto;
+   /* background-color: orange; */
+}
+
+
+#edit-question-option{
+    width: 90%;
+    height: 620px;
+    margin: 8% auto;
+    border: none;
+    /* background: green; */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 10px 0 rgb(0 0 0 / 10%);
+
+}
+
+#edit-question-option form{
+    width: 90%;
+   height: 90%;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-evenly;
+   /* justify-content: center; */
+   margin: 0px auto;
+   /* background-color: orange; */
+}
+
+
+#back-opt{
+    width: 50%;
+    background-color: white;
+    border: none;
+}
+#back-home:hover{
+    border-bottom: 1px solid #1266f1;
+}
+
+.title{
+    height: 50px;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 10px 0 rgb(0 0 0 / 10%);
+    width: 80%;
+    border-radius: 30px;
+    margin: 10% auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+#view-question-section{
+    display: none;
+}
+
+.view-question-option{
+    width: 90%;
+    /* height: 610px; */
+    margin: 8% auto;
+    border: none;
+    /* background: green; */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 10px 0 rgb(0 0 0 / 10%);
+    padding-bottom: 5%;
+    padding-top: 5%;
+}
+
+.view-question,.view-answer{
+    /* width: 100%; */
+    margin: 2% auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+
+.view-btn{
+    border: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.edit-btn{
+    background-color: #04AA6D;
+    border: none;
+}
+
+.delete-btn{
+    background-color:rgb(170, 17, 17);
+    border: none;
+}
+
+.back-icon{
+    background-color: white;
+    padding: 16px;
+    font-size: x-large;
+    border: none;
+    height: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#search{
+    padding: 16px;
+    font-size: x-large;
+    border: none;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Dropdown Button */
+.dropbtn {
+  background-color: white;
+  padding: 16px;
+  font-size: x-large;
+  border: none;
+  height: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 300px;
+  margin-left: -12px;
+  font-size: large;
+  font-weight: bold;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: rgb(235, 231, 231);}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+/* .dropdown:hover .dropbtn {background-color: #3e8e41;} */
+
+
+
+
+#doctorSearchBox{
+    /* background-color: green; */
+    width: 50px;
+    height: 50px;
+    position: relative;
+    transform: translate(0%,0%);
+    transition: all 1s;
+    box-sizing: border-box;
+    border-radius: 25px;
+    padding: 5px; 
+}
+
+#searchBox{
+    position: absolute;
+    top: 7px;
+    left: 19px;
+    width: 100%;
+    height: 36px;
+    line-height: 30px;
+    outline: 0;
+    border: 0;
+    display: none;
+    font-size: 1em;
+    border-radius: 20px;
+    padding: 0 20px;
+}
+
+.fa-search{
+    box-sizing: border-box;
+    padding: 10px;
+    width: 42.5px;
+    height: 42.5px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 50%;
+    color: white;
+    text-align: center;
+    font-size: 1.2em;
+    transition: all 1s;
+}
+
+#doctorSearchBox:hover,
+#doctorSearchBox:valid{
+    width: 200px;
+    cursor: pointer;
+}
+
+#doctorSearchBox:hover #searchBox,
+#doctorSearchBox:valid #searchBox{
+    display: block;
+}
+
+#doctorSearchBox:hover .fa-search,
+#doctorSearchBox:valid .fa-search{
+   
+    color: #1266f1;
+}
+
+#doctorSearchBox:valid  {
+  display: block;
+}
+
+#change-bg-color{
+    display: none;
+    border: none;
+}
+#bg-btn{
+    border: none;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+.colors{
+    border-radius: 30px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2% 0px;
+    flex-wrap: wrap;
+    font-weight: bold;
+    color: white;
+    font-size: x-large;
+}
+#set-bg-btn{
+    width: 80%;
+    margin: 2% auto;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    background-color: #04AA6D;
+    font-weight: bold;
+}
+
+#default{
+    background-color: #1266f1;
+}
+#grey{
+    background-color:grey;
+}
+#user-account{
+    border: none;
+    display: none;
+}
+.account-items{
+    border: none;
+    border-bottom: 2px solid #ced4da;
+
+}
+.items{
+    display: flex;
+    justify-content: space-between;
+    border: none;
+    margin-bottom: 1%;
+}
+
+.info{
+    display: none;
+    border: none;
+}
+ul{
+    list-style-type: none;
+    border: none;
+}
+ul li {
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+.list-title{
+    font-weight: bold;
+}
+.list-item{
+    margin-left: 5%;
+    text-transform: capitalize;
+}
+.list-item-space{
+    margin-left: 5%;
+}
+.warning-message{
+    border: none;
+    font-weight: bold;
+}
+#remove-accountBtns{
+    display: flex;
+    justify-content: space-between;
+    margin: 3% auto;
+    border: none;
+}
+#yes-btn{
+    background-color:rgb(170, 17, 17);
+}
+#no-btn{
+    background-color: #04AA6D;
+}
+
+#remove-account-item{
+    border: none;
+    display: none;
+}
+#remove-account{
+    border: none;
+    border-bottom: 2px solid #ced4da;
+}
+#remove-account i{
+    font-weight: bold;
+}

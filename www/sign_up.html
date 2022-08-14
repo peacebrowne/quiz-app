@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="bootstrap-5.2.0-beta1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../fontawesome-free-5.10.2-web/css/all.min.css">
+    <link rel="stylesheet" href="./css/card.css">
+    <link rel="stylesheet" href="./css/sign_up.css">
+    <title>TESTER SIGN-UP</title>
+</head>
+<body>
+
+    <main>
+        
+        <section id="login">
+            <div class="card" style="width: 95%; margin: 0 auto;">
+                <div class="form-control form-head bg">
+                 <h3 class="signUp-head"><i class="fa fa-sign-in-alt"></i> LOGIN</h3>
+    
+                </div>
+                 <form action="">
+                     <div class="form-group">
+                         <label class="control-label">EMAIL</label>
+                         <input id="login_email" name="email" class="form-control" type="email" placeholder="email" autofocus>
+                     </div>
+                     <div class="form-group">
+                         <label class="control-label">PASSWORD</label>
+                         <input id="login_password" name="password" class="form-control" type="password" placeholder="password" autofocus>
+                     </div>
+                     
+                 </form>
+
+                 <div id="other-opt" class="form-control">
+                     <a href="#" id="signUp-link">Sign Up</a>
+                     <a href="#" id="forget-link">Forget Password ?</a>
+                 </div>
+                 <a href="#" id="submitBtn" class="btn btn-primary bg">LOGIN</a>
+    
+                
+             </div>
+        </section>
+
+        <section class="form-control" id="forget-password" style="display: none;">
+            <div class="card" style="width: 100%;">
+                <div class="form-control form-head bg">
+                    <h3 class="signUp-head"><i class="fa fa-recycle"></i> FORGET PASSWORD</h3>
+       
+                   </div>
+                 <form action="">
+                     <div class="form-group">
+                         <label class="control-label">Please enter your email</label>
+                         <input id="forget_email" name="email" class="form-control" type="email" placeholder="email" autofocus>
+                     </div>
+                    
+                 </form>
+
+                 <div id="other-opt" class="form-control">
+                    <a href="#" id="login-link">Login</a>
+                    <!-- <a href="#" id="forget-link">Forget Password ?</a> -->
+                </div>
+                 <a href="#" id="submitBtn"  class="btn btn-primary bg">SUBMIT</a>
+    
+                
+             </div>
+        </section>
+
+
+        <section id="reset-password" class="form-control" style="display: none;">
+            <div class="card" style="width: 100%;">
+                <div class="form-control form-head bg">
+                 <h3 class="signUp-head"><i class="fa fa-recycle"></i> RESET PASSWORD</h3>
+    
+                </div>
+                 <form action="">
+                     <div class="form-group">
+                         <label class="control-label">Please enter your new password</label>
+                         <input id="reset_password" name="password" class="form-control" type="password" placeholder="password" autofocus>
+                     </div>
+                    
+                 </form>
+
+                 <div id="other-opt" class="form-control">
+                    <a href="#" id="login-link">Login</a>
+                    <!-- <a href="#" id="forget-link">Forget Password ?</a> -->
+                </div>
+                 <a href="#" id="submitBtn"  class="btn btn-primary bg">SUBMIT</a>
+    
+                
+             </div>
+        </section>
+    
+        <section style="display: none;" id="sign-up">
+            
+                <div class="card" style="width: 100%;">
+                   <div class="form-control form-head bg">
+                    <h3 class="signUp-head"><i class="fa fa-lg fa-fw fa-user"></i> SIGN UP</h3>
+    
+                   </div>
+                    <form action="">
+                        <div class="form-group">
+                            <label class="control-label">FIRST NAME</label>
+                            <input id="signup_firstname" name="firstname" class="form-control" type="text" placeholder="firstname" autofocus>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">LAST NAME</label>
+                            <input id="signup_lastname"  name="lastname" class="form-control" type="text" placeholder="lastname" autofocus>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">USERNAME</label>
+                            <input id="signup_username"  name="username" class="form-control" type="text" placeholder="username" autofocus>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">EMAIL</label>
+                            <input id="signup_email"  name="email" class="form-control" type="email" placeholder="email" autofocus>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">CONTACT</label>
+                            <input id="signup_contact" name="contact" class="form-control" type="tel" placeholder="contact" maxlength="10" autofocus>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">PASSWORD</label>
+                            <input id="signup_password" name="password" class="form-control" type="password" placeholder="password" autofocus>
+                        </div>
+                        
+                    </form>
+                    <div id="other-opt" class="form-control">
+                        <a href="#" id="login-link">Login</a>
+                        <!-- <a href="#" id="forget-link">Forget Password ?</a> -->
+                    </div>
+                    <a href="#" id="submitBtn" class="btn btn-primary bg">SUBMIT</a>
+                   
+                </div>
+    
+        </section>
+    </main>
+        <!-- <script src="./js/card.js"></script> -->
+        <script src="./js/signup.js"></script>
+        <script src="./js/custom.js"></script>
+        <script src="./js/sweet-alert.js"></script>
+        <script src="./bootstrap-5.2.0-beta1-dist/js/bootstrap.js"></script>
+      
+</body>
+</html>
