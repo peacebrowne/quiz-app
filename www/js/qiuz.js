@@ -477,7 +477,7 @@ const checked_already = () =>{
 // correct ans
 const correct_answer = btn =>{
 
-    let correct = btn.nextElementSibling;
+    let correct = btn.nextElementSibling.nextElementSibling;
     let ans = btn.nextElementSibling.textContent
 
     if(ans == hidden_ans.textContent){
@@ -495,7 +495,7 @@ let prev_wrong_ans;
 // wrong ans
 const wrong_answer = btn =>{
 
-    let wrong = btn.nextElementSibling.nextElementSibling;
+    let wrong = btn.nextElementSibling.nextElementSibling.nextElementSibling;
     let ans = btn.nextElementSibling.textContent
 
     if(ans != hidden_ans.textContent){
@@ -575,7 +575,7 @@ const quiz_over = (next) =>{
 
         Swal.fire({
             icon: 'warning',
-            title: `GAME OVER`,
+            title: `GAME OVER.`,
             confirmButtonText: "OK"
         })
         hideElement('#nextBtn');
