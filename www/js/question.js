@@ -259,7 +259,7 @@ const general_questions = [
             'arr',
             'array',
             'Array',
-            'none of the above',
+            'none of the answers',
         ],
         topic: 'javascript',
         status: 'default'
@@ -359,7 +359,7 @@ const general_questions = [
 
     {
         id: 7,
-        question: 'Which of the below is an example of variables initialization',
+        question: 'What is an example of variables initialization',
         correctAns: 'age = 5;',
         answers: [
     
@@ -426,7 +426,7 @@ const general_questions = [
 
     {
         id: 11,
-        question: 'Which of the following symbols is used to represent an array in JavaScript?',
+        question: 'Which symbol is used to represent an array in JavaScript?',
         correctAns: '[]',
         answers: [
     
@@ -507,13 +507,13 @@ const general_questions = [
 
     {
         id: 16,
-        question: 'A variable declaration begins with the keyword var and end with',
-        correctAns: 'semicolon (;)',
+        question: 'A variable declaration begins with the keyword var and ends with',
+        correctAns: 'semicolon ( ; )',
         answers: [
     
-            'colon (:)',
-            'semicolon (;)',
-            'comma (:)',
+            'colon ( : )',
+            'semicolon ( ; )',
+            'comma ( : )',
             'quotation mark (“ “)'
         ],
         topic: 'javascript',
@@ -555,7 +555,7 @@ const general_questions = [
 
     {
         id: 19,
-        question: 'Which of the below way is correct for declaring and initializing a variable',
+        question: 'What is the best way of declaring and initializing a variable',
         correctAns: 'var name = “john”;',
         answers: [
     
@@ -601,25 +601,9 @@ const general_questions = [
     }
     ,
 
+
     {
         id: 22,
-        question: 'The function parameter is place in a pair of',
-        correctAns: 'parentheses ( )',
-        answers: [
-    
-            'curly braces { }',
-            'square brackets [ ]',
-            'parentheses ( )',
-            'quotation mark “ “'
-        ],
-        topic: 'javascript',
-        status: 'default'
-    }
-    ,
-
-
-    {
-        id: 23,
         question: 'The function body is place in a pair of',
         correctAns: 'curly braces { }',
         answers: [
@@ -636,7 +620,7 @@ const general_questions = [
 
 
     {
-        id: 24,
+        id: 23,
         question: 'Functions parameters can be thought of as',
         correctAns: 'variable',
         answers: [
@@ -653,7 +637,7 @@ const general_questions = [
 
 
     {
-        id: 25,
+        id: 24,
         question: 'Functions argument can be thought of as',
         correctAns: 'a value',
         answers: [
@@ -670,8 +654,8 @@ const general_questions = [
 
 
     {
-        id: 26,
-        question: 'function eat( ) {console.log("rice");} What does the above code do when executed?',
+        id: 25,
+        question: 'function eat( ) {<br>console.log("rice");<br>}<br><br> What does the above code do when executed?',
         correctAns: 'it prints rice to the console',
         answers: [
     
@@ -687,8 +671,8 @@ const general_questions = [
 
 
     {
-        id: 27,
-        question: 'function eat(foodname) {console.log(foodname);} eat("cassava") The parameter in the above code is',
+        id: 26,
+        question: 'function eat(foodname) {<br>console.log(foodname);<br>}<br> eat("cassava")<br><br> The parameter in the above code is',
         correctAns: 'foodname',
         answers: [
     
@@ -705,7 +689,7 @@ const general_questions = [
 
     {
         id: 27,
-        question: 'According to the lesson, functions should do how many things',
+        question: 'According to the lesson, functions should do how many things?',
         correctAns: 'only one thing',
         answers: [
     
@@ -721,7 +705,7 @@ const general_questions = [
 
 
     {
-        id: 27,
+        id: 28,
         question: 'Functions in JavaScript can only be written',
         correctAns: 'anywhere in the code',
         answers: [
@@ -737,7 +721,7 @@ const general_questions = [
     ,
 
     {
-        id: 28,
+        id: 29,
         question: 'A __ is used to display the last 10 lines of it\"s input.',
         correctAns: 'tail',
         answers: [
@@ -753,15 +737,15 @@ const general_questions = [
     ,
 
     {
-        id: 29,
+        id: 30,
         question: 'What will be the output of the of command $head -n 4 lenghts.txt ?',
-        correctAns: 'Print the fist 4 lines',
+        correctAns: 'Prints the fist 4 lines',
         answers: [
     
             'Error',
             'The last 4 lines',
-            'Print the fist 4 lines',
-            'Print all in the lengths.txt'
+            'Prints the fist 4 lines',
+            'Prints all in the lengths.txt'
         ],
         topic: 'linux',
         status: 'default'
@@ -769,14 +753,14 @@ const general_questions = [
     ,
 
     {
-        id: 30,
+        id: 31,
         question: 'What is the difference between a start tag and an end tag?',
-        correctAns: 'An end tat starts with a forward slash.',
+        correctAns: 'An end tag starts with a forward slash.',
         answers: [
     
             'They are identical',
             'An end tag is capitalized,',
-            'An end tat starts with a forward slash.',
+            'An end tag starts with a forward slash.',
             'An end tag is mandatory but a start tag is optional'
         ],
         topic: 'html',

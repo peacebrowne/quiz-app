@@ -176,7 +176,7 @@ const get_topics = () =>{
             }
 
         })
-        console.log(all_topics)
+        // console.log(all_topics)
         insert_topics(all_topics)
         general_topic()
 
@@ -251,7 +251,7 @@ let random_question;
 let random_number;
 let question = [];
 let backUp = []
-let restart_question = [];
+let play_again_questions = [];
 
 // Generating random questions from selected number of questions
 const generate_random_question = data =>{
@@ -273,7 +273,7 @@ const generate_random_question = data =>{
             // and selecting question based on the generated random number.
             random_number = generateRandomNumber(total_length)
             random_question.push(all_questions[random_number])
-            // restart_question.push(all_questions[random_number])
+            // play_again_questions.push(all_questions[random_number])
             all_questions.splice(random_number,1)
 
         }
@@ -358,7 +358,7 @@ card_back_icon.addEventListener('click',()=>{
     checks.forEach(c => c.style.display = 'none')
     score.textContent = 0;
     random_question = [];
-    restart_question = [];
+    play_again_questions = [];
 })
 
 
@@ -411,27 +411,30 @@ const score = document.querySelector('#score').children[1];
 
 // showing the from the selected ramdom questions
 const display__first_questions = q =>{
-    restart_question = [];
-    question_bar.textContent = q[0].question;
+    play_again_questions = [];
+
+    let rn = generateRandomNumber(q.length)
+
+    question_bar.textContent = q[rn].question;
     question_bar.setAttribute('id',`${0}`);
     question_number.textContent = 1;
     
-    hidden_ans.textContent = q[0].correctAns;
-    let answers = q[0].answers;
+    hidden_ans.textContent = q[rn].correctAns;
+    let answers = q[rn].answers;
     let options = [optionA,optionB,optionC,optionD];
     
     for(const ans of options){
 
-        let rn = Math.floor(Math.random() * answers.length);
-        ans.textContent = answers[rn];
-        backUp.push(answers[rn]);
-        answers.splice(rn,1);
+        let random = Math.floor(Math.random() * answers.length);
+        ans.textContent = answers[random];
+        backUp.push(answers[random]);
+        answers.splice(random,1);
 
     };
 
-    random_question[0].answers = backUp;
-    restart_question.push(random_question[0]);
-    random_question.splice(0,1);
+    random_question[rn].answers = backUp;
+    play_again_questions.push(random_question[rn]);
+    random_question.splice(rn,1);
 
 }
 
@@ -474,16 +477,12 @@ const checked_already = () =>{
 // correct ans
 const correct_answer = btn =>{
 
-    let correct = btn.nextElementSibling.nextElementSibling;
+    let correct = btn.nextElementSibling;
     let ans = btn.nextElementSibling.textContent
 
     if(ans == hidden_ans.textContent){
         correct.style.display = 'flex'
         score.textContent = +score.textContent + 10;
-        Swal.fire({
-            icon: 'success',
-            title: `Correct`,
-        })
         return 'correct';
     }
 
@@ -496,18 +495,13 @@ let prev_wrong_ans;
 // wrong ans
 const wrong_answer = btn =>{
 
-    let wrong = btn.nextElementSibling.nextElementSibling.nextElementSibling;
+    let wrong = btn.nextElementSibling.nextElementSibling;
     let ans = btn.nextElementSibling.textContent
 
     if(ans != hidden_ans.textContent){
 
         wrong.style.display = 'flex'
         prev_wrong_ans = ans
-        Swal.fire({
-            icon: 'error',
-            title: `Wrong!`,
-            // confirmButtonText: "Close"
-        })
         
     }
 
@@ -526,7 +520,8 @@ const wrong_answer = btn =>{
 
 
 const next_btn = document.querySelector('#card-btn #nextBtn')
-const finishBtn = document.querySelector('#card-btn #finishBtn')
+const play_again_btn = document.querySelector('#card-btn #play_again_btn')
+const restartBtn = document.querySelector('#card-btn #restartBtn')
 let nextAns ;
 
 
@@ -544,8 +539,10 @@ const next_question = ev =>{
 
     question_bar.id = next;
     question_number.textContent = next+1;
-    
-    let next_question = random_question[0];
+
+
+    let rn = generateRandomNumber(random_question.length)
+    let next_question = random_question[rn];
     question_bar.textContent = next_question.question;
 
     hidden_ans.textContent = next_question.correctAns;
@@ -562,9 +559,9 @@ const next_question = ev =>{
     };
     
     checks.forEach(c => c.style.display = 'none');
-    random_question[0].answers = backUp;
-    restart_question.push(random_question[0]);
-    random_question.splice(0,1);
+    random_question[rn].answers = backUp;
+    play_again_questions.push(random_question[rn]);
+    random_question.splice(rn,1);
 
 }
 
@@ -582,7 +579,7 @@ const quiz_over = (next) =>{
             confirmButtonText: "OK"
         })
         hideElement('#nextBtn');
-        showElement('#finishBtn');
+        showElement('#play_again_btn');
         return 'quiz finish';
 
     }
@@ -611,16 +608,16 @@ const compulsary_ans = () =>{
 
 }
 
-const restart_quiz = ev =>{
+const play_again = ev =>{
 
     ev.preventDefault();
-    hideElement('#finishBtn');
+    hideElement('#play_again_btn');
     showElement('#nextBtn');
 
     checks.forEach(c => c.style.display = 'none')
     score.textContent = 0;
-    restart_question.forEach(val => random_question.push(val))
+    play_again_questions.forEach(val => random_question.push(val))
     display__first_questions(random_question)
 }
 
-finishBtn.addEventListener('click',restart_quiz)
+play_again_btn.addEventListener('click',play_again)

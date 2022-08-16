@@ -4,11 +4,11 @@ body{
 }
 
 #sign-up{
-    width: 95%;
+    width: 30%;
 }
 #login{
     margin: 0px auto;
-    width: 100%;
+    width: 30%;
 }
 .card{
     display: flex;
@@ -21,7 +21,7 @@ body{
     width: 80%;
 }
 #other-opt{
-    width: 90%;
+    /* width: 90%; */
     height: 30px;
     background-color: white;
     border: none;
@@ -71,8 +71,23 @@ main{
 #other-opt a{
     text-decoration: none;
 }
-#other-opt a:hover{
+/* #other-opt a:hover{
     border-bottom: 1px solid #1266f1;
+    background-color: red;
+} */
+
+#reset{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: none;
+}
+#reset form{
+    border: none;
+}
+#login-link{
+    margin-right: auto;
+    margin-left: 7%;
 }
 
 #forget-password{
@@ -92,6 +107,7 @@ main{
     text-align: left;
 }
 #reset-password{
-    border: none;
-    background-color: whitesmoke;
+    /* border: none; */
+    width: 30%;
+    background-color: white;
 }
