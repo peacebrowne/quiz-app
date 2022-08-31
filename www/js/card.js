@@ -321,8 +321,8 @@ const display_user_questions = questions =>{
 
     if(questions.length === 0){
         Swal.fire({
-            icon: 'error',
-            title: `There's no question in your box.`,
+            icon: 'warning',
+            title: `There's no question in your box. Only default questions`,
             confirmButtonText: "Close"
         })
         return ;
@@ -352,8 +352,8 @@ const views = q =>{
             </span>
         </div>
         <div class="view-answer form-control">
-            <span>
-                <strong>Ans:</strong> ${q.correctAns}
+            <span style=" color: #04AA6D; font-weight: bold;">
+                <strong style=" color: black;">Ans:</strong> ${q.correctAns}
             </span>
         </div>
     `

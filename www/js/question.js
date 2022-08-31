@@ -765,7 +765,22 @@ const general_questions = [
         ],
         topic: 'html',
         status: 'default'
+    },
+    {
+        id: 32,
+        question: 'A function with out a name is called',
+        correctAns: 'Anonymous Function',
+        answers: [
+    
+            'Regular Function',
+            'Fat arrow function',
+            'Anonymous Function',
+            'None'
+        ],
+        topic: 'javascript',
+        status: 'default'
     }
+    ,
     
 
 ]

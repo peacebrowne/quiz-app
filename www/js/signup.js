@@ -402,7 +402,7 @@ const forgetPwd_validation = data =>{
 
             Swal.fire({
                 icon: 'error',
-                title: `Wrong username or password`,
+                title: `Wrong email`,
                 confirmButtonText: "Close"
             })
             return ;
@@ -469,7 +469,7 @@ const reset_validation = data =>{
 
             Swal.fire({
                 icon: 'error',
-                title: `Wrong username or password`,
+                title: `Wrong email`,
                 confirmButtonText: "Close"
             })
             return ;
