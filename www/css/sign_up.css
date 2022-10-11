@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;700&display=swap');
+
+*{
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
 body{
     margin: 0;
     padding: 0;
@@ -35,7 +42,7 @@ body{
     padding-top: 5%;
     padding-bottom: 5%;
     text-align: center;
-    font-weight: bold;
+    font-weight: 400;
 }
 form{
     padding: 7% auto;

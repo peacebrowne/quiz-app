@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;700&display=swap');
+
+*{
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
 body{
     margin: 0;
     padding: 0;
@@ -82,7 +90,7 @@ body{
     justify-content: center;
     align-items: center;
     font-size: large;
-    font-weight: bold;
+    font-weight: 400;
     /* color: white; */
 }
 #question-bar {
@@ -112,7 +120,7 @@ body{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    font-weight: bold;
+    font-weight: 400;
     font-size: large;
 }
 #showAns{
@@ -173,7 +181,7 @@ body{
     vertical-align: bottom;
     border: 0;
     box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 10px 0 rgb(0 0 0 / 10%);
-    font-weight: 500;
+    font-weight: 700;
     padding: 0.625rem 1.5rem 0.5rem;
     line-height: 1.5;
 }
@@ -211,7 +219,7 @@ body{
     align-items: center;
     font-size: x-large;
     color: white;
-    font-weight: bold;
+    font-weight: 400;
 }
 
 #select-options form{
@@ -308,7 +316,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    font-weight: bold;
+    font-weight: 400;
 }
 
 #view-question-section{
@@ -403,7 +411,7 @@ body{
   min-width: 300px;
   margin-left: -12px;
   font-size: large;
-  font-weight: bold;
+  font-weight: 400;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
   border-top-right-radius: 20px;
@@ -511,7 +519,7 @@ body{
     align-items: center;
     margin: 2% 0px;
     flex-wrap: wrap;
-    font-weight: bold;
+    font-weight: 400;
     color: white;
     font-size: x-large;
 }
@@ -521,7 +529,7 @@ body{
     padding-top: 3%;
     padding-bottom: 3%;
     background-color: #04AA6D;
-    font-weight: bold;
+    font-weight: 400;
 }
 
 #default{
@@ -559,7 +567,7 @@ ul li {
     padding-bottom: 3%;
 }
 .list-title{
-    font-weight: bold;
+    font-weight: 400;
 }
 .list-item{
     margin-left: 5%;
@@ -570,7 +578,7 @@ ul li {
 }
 .warning-message{
     border: none;
-    font-weight: bold;
+    font-weight: 400;
 }
 #remove-accountBtns{
     display: flex;
@@ -594,8 +602,35 @@ ul li {
     border-bottom: 2px solid #ced4da;
 }
 #remove-account i{
-    font-weight: bold;
+    font-weight: 400;
 }
+
+#pagination{
+    width: 90%;
+    margin: 1rem auto;
+    display: flex;
+    justify-content: space-between;
+    border: none;
+    background-color: transparent;
+}
+
+.pag{
+    padding: 0.7rem 1rem;
+    box-shadow:  0 2px 10px 0 rgb(0 0 0 / 10%);
+    background-color: white;
+}
+.pag-active{
+    background-color: #1266f1;
+    color: white;
+    font-weight: 700;
+}
+#q-bar{
+    width: 90%;
+    margin: 1rem auto;
+    border:none;
+}
+
+
 
 @media only screen and (max-width: 600px) {
     /* body {
@@ -622,7 +657,7 @@ ul li {
         margin-top: 8%;
     }
     .view-question-option{
-        width: 90%;
+        width: 100%;
         text-align: center;
     }
     .view-btn{

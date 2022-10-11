@@ -261,11 +261,11 @@ view_back_icon.addEventListener('click', ev =>{
     showElement('#dropdown-icon')
     showElement('#initial')
     // location.reload()
-    view_question_bar.innerHTML = `
-        <div class="form-control title">
-            <span>VIEW QUESTION</span>
-        </div>
-    `
+    // view_question_bar.innerHTML = `
+    //     <div class="form-control title">
+    //         <span>VIEW QUESTION</span>
+    //     </div>
+    // `
 
 })
 
@@ -315,27 +315,47 @@ const read_questions = () =>{
     }
 }
 
-// display all user questions
-const display_user_questions = questions =>{
-    // console.log(questions)
+let current_page = 1;
+let row = 5;
+let pos;
+let pag_btn;
+let items_questions;
 
-    if(questions.length === 0){
-        Swal.fire({
-            icon: 'warning',
-            title: `There's no question in your box. Only default questions`,
-            confirmButtonText: "Close"
-        })
-        return ;
-    }
+let q_bar = document.getElementById('q-bar')
+let pagBtn = document.querySelectorAll('.pagBtn')
 
-    questions.forEach( question => {
+pagBtn.forEach(btn => btn.addEventListener('click', ev =>{
+    let page = ev.target.dataset.value;
+    pagination(items_questions,page,row)
+}))
 
-        views(question)
-        // console.log(question)
-    })
-
+const pagination = (items,page,rows)=>{
+    q_bar.innerHTML = ''
+    pag_btn = page;
+    if(page == '>>') page = ++pos 
+    else if(page == '<<') page = --pos 
+    pos = page
+    page--
+    let questions = items.slice(page * rows , page * rows + rows)
+    active_pag(pag_btn)
+    questions.forEach(val => views(val))
 }
 
+const active_pag = (btn) =>{
+    for(let i = 0; i < pagBtn.length; i++){
+        if(Array.from(pagBtn[i].classList).includes('pag-active'))pagBtn[i].classList.remove('pag-active')
+        if(pagBtn[i].dataset.value.includes(btn))pagBtn[i].classList.add('pag-active')
+    }
+}
+
+// display all user questions
+const display_user_questions = questions =>{
+    items_questions = questions;
+        pos = current_page;
+        let question = questions.slice(current_page,row)
+        if(q_bar.innerHTML != '') return;
+        question.forEach( question => views(question))
+}
 
 const views = q =>{
     let question_div = document.createElement('div')
@@ -347,12 +367,12 @@ const views = q =>{
     if(q.status === 'default'){
          print = `
         <div class="view-question form-control">
-            <span>
-                <strong>${q.question}</strong>
+            <span style="font-weight: 400px">
+                ${q.question}
             </span>
         </div>
         <div class="view-answer form-control">
-            <span style=" color: #04AA6D; font-weight: bold;">
+            <span style=" color: #1266f1; font-weight: 400;">
                 <strong style=" color: black;">Ans:</strong> ${q.correctAns}
             </span>
         </div>
@@ -361,8 +381,8 @@ const views = q =>{
 
      print = `
         <div class="view-question form-control">
-            <span>
-                <strong>${q.question}</strong>
+            <span style="font-weight: 400px">
+                ${q.question}
             </span>
         </div>
         <div class="view-answer form-control">
@@ -393,7 +413,7 @@ const views = q =>{
     `}
 
     question_div.innerHTML = print;
-    view_question_bar.append(question_div)
+    q_bar.insertAdjacentElement("afterbegin",question_div)
 
 }
 
@@ -446,7 +466,6 @@ const delete_questionBtn = () =>{
     })
 
 }
-
 
 // deleted question id
 const questionID = ev =>{
@@ -646,15 +665,15 @@ const reInitializeForm = data =>{
 const search_question = ev =>{
 
     let term = ev.target.value.toLocaleLowerCase();
-    let search_items = document.querySelectorAll('#view-question-section .view-question-option .view-question span strong')
+    let search_items = document.querySelectorAll('#view-question-section .view-question-option .view-question span')
     
     search_items.forEach(q => {
-        let question = q.parentElement.parentElement.parentElement;
+        let question = q.parentElement.parentElement;
         let content = q.textContent.toLocaleLowerCase()
 
         if(content.includes(term)){
 
-            question.style.display = 'flex'
+            question.style.display = 'block'
 
         }else{
             question.style.display = 'none'
