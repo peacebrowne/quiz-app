@@ -629,3 +629,31 @@ ul li {
         justify-content: space-between;
     }
   }
+
+  /* Pagination links */
+.pagination{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: none;
+    margin: 0px auto 1em auto;
+    background-color: whitesmoke;
+}
+.pagination a {
+    color: black;
+    font-weight: bold;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+  }
+  
+  /* Style the active/current link */
+  .pagination a#active {
+    background-color: #1266f1;
+    color: white;
+  }
+  
+  /* Add a grey background color on mouse-over */
+  .pagination a:hover:not(.active) {background-color: #ddd;}

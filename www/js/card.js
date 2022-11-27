@@ -315,26 +315,66 @@ const read_questions = () =>{
     }
 }
 
+let pagQuestions = [];
+
 // display all user questions
 const display_user_questions = questions =>{
-    // console.log(questions)
+    let pag = [];
+    
+    for (let i = 0; i <= questions.length; i++) {
+        pag.push(questions[i]);
 
-    if(questions.length === 0){
-        Swal.fire({
-            icon: 'warning',
-            title: `There's no question in your box. Only default questions`,
-            confirmButtonText: "Close"
-        })
-        return ;
+        if(questions[i] == undefined && pag.length != 0){
+            pag.pop()
+            pagQuestions.push(pag)
+            break;
+        }
+        else if(pag.length === 10 ){
+            pagQuestions.push(pag)
+            pag = [];
+        }
+        
     }
+    // console.log(pagQuestions)
+    pagDisplay(0)
+    
 
-    questions.forEach( question => {
+}
+
+const pagDisplay = n =>{
+    pagQuestions[n].forEach( question => {
 
         views(question)
         // console.log(question)
     })
-
 }
+
+let pagination = document.getElementById('pagination')
+const pagBtns = document.querySelectorAll('.pag')
+
+pagBtns.forEach(btn => {
+    btn.addEventListener('click',ev =>{
+        pagBtns.forEach(b => {
+            if(b.id == 'active') b.id ='';
+            btn.id ='active';
+        })
+
+        let content = ev.target.textContent;
+        if(content == '>>'){
+            // console.log(content)
+        }else if(content == '<<'){
+
+        }else{
+
+            if(pagQuestions[+content] == undefined) return
+            let previous = document.querySelectorAll('.view-question-option');
+            previous.forEach(ele => ele.remove())
+            pagDisplay(+content)
+
+        }
+    })
+})
+
 
 
 const views = q =>{
@@ -393,7 +433,7 @@ const views = q =>{
     `}
 
     question_div.innerHTML = print;
-    view_question_bar.append(question_div)
+    pagination.insertAdjacentElement('beforebegin',question_div)
 
 }
 
