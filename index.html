@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TESTER</title>
+    <link rel="stylesheet" href="./assets/fontawesome-free-6.2.1-web/css/all.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+
+<body>
+
+    <!-- BACK TO PREVIOUS SECTION -->
+    <header>
+        <div  class="back">
+            <i class="fa fa-arrow-left"></i>
+            <h5>Seciton Title</h5>
+        </div>
+    </header>
+
+    <section class="banner">
+
+        <div class="wrapper">
+            
+        </div>
+        
+   </section>
+
+   <section class="caution">
+        <div class="wrapper">
+            <div class="status">
+                <i class="fa fa-warning"></i>
+                <h4>Do you want to delete this question?</h4> 
+                <div class="caution-btn">
+                    <button data-value="yes" class="yes-btn">yes</button>
+                    <button data-value="no" class="no-btn">no</button>
+                </div>
+            </div>
+
+        </div>
+   </section>
+    
+    <main>
+
+        <!-- HOME SECTION -->
+        <section class="home-section">
+            <div class="home-section-items">
+                <h1 class="logo-title">Tester</h1>
+
+               <div class="tab-sections">
+                    <div class="tab quiz"> 
+                        <h5>quiz</h5>
+                        <i class="fa fa-book"></i>
+                    </div>
+                    <div class="tab add"> 
+                        <h5>add question</h5>
+                        <i class="fa fa-plus"></i>
+                    </div>
+                    <div class="tab view"> 
+                        <h5>view question</h5>
+                        <i class="fa fa-eye"></i>
+                    </div>
+               </div>
+
+            </div>
+       </section>
+    
+       <!-- QUIZ FORM -->
+       <section class="quiz-form">
+            <form action="">
+                <div class="form-group">
+                    <label for="topic">topic</label>
+                    <select name="Topic" class="topics" id="select-topic..."></select>
+                </div>
+                <div class="form-group">
+                    <label for="topic">questions</label>
+                    <input type="number" name="Number of question" id="topic" placeholder="number of questions...">
+                </div>
+                <div class="form-group">
+                    <button class="start-btn">start</button>
+                </div>
+            </form>
+       </section>
+    
+        <!-- ADD AND EDIT QUESTION FORM -->
+       <section class="add-and-edit-section">
+            <form action="">
+                <div class="form-group">
+                    <input type="text" name="topic" id="topic" placeholder="topic" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="question" id="question" cols="30" rows="2" placeholder="question" required></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="correctAns" id="correctAns" placeholder="correct ans..." required>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="firstOption" id="firstOption" placeholder="first option" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="secondOption" id="secondOption" placeholder="second option" required>
+                </div>
+                <div class="form-group">
+                    <button class="submit-btn">submit</button>
+                </div>
+            </form>
+       </section>
+    
+       <!-- VIEW QUESTIONS SECTION -->
+       <section class="view-question-section">
+            <div class="views"></div>
+
+            <div class="pagination">
+                <div class="pag-btn" data-value="<<"> 
+                    <<
+                </div>
+                <div class="pag-btn" data-value="1"> 
+                    1
+                </div>
+                <div class="pag-btn" data-value="2"> 
+                    2
+                </div>
+                <div class="pag-btn" data-value="3"> 
+                    3
+                </div>
+                <div class="pag-btn" data-value="4"> 
+                    4
+                </div>
+                <div class="pag-btn" data-value="5"> 
+                    5
+                </div>
+                <div class="pag-btn" data-value=">>"> 
+                    >>
+                </div>
+            </div>
+
+       </section>
+    
+       <!-- CARD SECTION -->
+       <section class="card-section">
+
+            <div class="card-head">
+                <div class="card-topic">
+                    0/5
+                </div>
+                <button data-value="show" class="show-ans-btn">show ans</button>
+            </div>
+
+            <div class="card-body">
+                
+            </div>
+
+            <div class="hidden-answer hide">
+                <p>
+                </p>
+            </div>
+
+       </section>
+    
+    </main>
+   
+    <script src="./js/custom.js"></script>
+    <script src="./js/app.js"></script>
+    <script src="./js/question.js"></script>
+
+</body>
+
+</html>
