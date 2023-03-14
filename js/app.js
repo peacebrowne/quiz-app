@@ -145,22 +145,40 @@ const random_number = n => {
     return Math.floor(Math.random() * n)
 }
 
-const card_body = element('.card-body')
+const card_body = element('.card-body');
 const card_section = element('.card-section');
-const correct_answer = element('.hidden-answer p')
+const correct_hidden_answer = element('.hidden-answer p');
 
 card_section.addEventListener('click', ev => {
+
     const target = ev.target;
 
     if(target.className.includes('show-ans-btn')) hidden_answer(target);
-    // else if(target.className.className)
+    else if(target.className.includes('option-answer') 
+    || target.parentElement.className.includes('option-answer')){
 
+        correct_answer(target)
+
+    }
 
 })
 
-const hidden_answer = ele =>{
+const correct_answer = ele => {
 
-    if(ele.dataset.value == 'show'){
+    if(ele.textContent == correct_hidden_answer.textContent ||
+        ele.nextElementSibling.textContent == correct_hidden_answer){
+
+        console.log(true)
+
+    }
+
+}
+
+
+
+const hidden_answer = ele => {
+
+    if( ele.dataset.value == 'show' ){
 
         ele.dataset.value = 'hide';
         ele.textContent = 'hide ans';
@@ -178,15 +196,13 @@ const hidden_answer = ele =>{
 
 }
 
-
 const card = question => {
 
-    let ele = ` <h5>${question.question}</h5>`
-    const result = options(question.answers)
+    let ele = ` <h5>${question.question}</h5>`;
+    const result = options(question.answers);
     ele += result;
-    correct_answer.textContent = question.correctAns;
-
-    card_body.innerHTML = ele
+    correct_hidden_answer.textContent = question.correctAns;
+    card_body.innerHTML = ele;
 
 }
 
@@ -204,11 +220,11 @@ const options = answers => {
             <p>${answers[rn]}</p>
             </div>
         `
-        answers.splice(rn,1)
+        answers.splice(rn,1);
 
     }
 
-    return result
+    return result;
 }
 
 const card_topic = element('.card-topic')
