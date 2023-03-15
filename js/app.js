@@ -43,7 +43,8 @@ const btn_txt ={
     ok: 'ok',
     next: 'next',
     restart: 'restart',
-    game_over: 'game over'
+    game_over: 'game over',
+    finish: 'finish'
 }
 
 let current_section = '.home-section';
@@ -184,9 +185,14 @@ card_section.addEventListener('click', ev => {
 
         if(random_question.length === 0){
 
-            if(correct_answer(target)) showBanner(icons.success,msg.correct,btn_txt.next)
-            else showBanner(icons.danger,msg.wrong,btn_txt.next);
+            if(correct_answer(target)) showBanner(icons.success,msg.correct,btn_txt.finish)
+            else showBanner(icons.danger,msg.wrong,btn_txt.finish);
+            return
+
         }
+
+        if(correct_answer(target)) showBanner(icons.success,msg.correct,btn_txt.next)
+        else showBanner(icons.danger,msg.wrong,btn_txt.next);
 
     }
 

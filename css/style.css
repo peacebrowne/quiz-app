@@ -343,9 +343,7 @@ input[type="radio"]{
 }
 
 .option-answer p{
-    margin-left: 20px;
-    padding: 0.7rem 0.5rem;
-    /* background: red; */
+    padding: 0.7rem 0.9rem;
     width: 100%;
 }
 
