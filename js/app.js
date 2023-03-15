@@ -42,7 +42,8 @@ const msg = {
 const btn_txt ={
     ok: 'ok',
     next: 'next',
-    restart: 'restart'
+    restart: 'restart',
+    game_over: 'game over'
 }
 
 let current_section = '.home-section';
@@ -124,22 +125,45 @@ const display_topic = topic => {
 
 let random_question;
 let count = 0;
+let back_up;
 
 const start_quiz = ev =>{
 
     ev.preventDefault()
-    const result = validate_quiz_form();
+    back_up = []
 
+    const result = validate_quiz_form();
     if(!result) return;
     random_question = all_questions(result);
+    
     const rn = random_number(random_question.length)
 
     show_section('.card-section')
-    card(random_question[rn])
-    random_question.splice(rn,1)
-    count++
+    card(random_question[rn]);
+    back_up.push(random_question.splice(rn,1));
+    next_question_number()
+    count++;
 
 }
+
+const card_question_number = element('.card-question-number')
+
+const next_question_number = () => {
+    card_question_number.innerHTML = `<span> ${back_up.length} / ${random_question.length+back_up.length}</span>`
+}
+
+const next_question = quesions => {
+
+    hideEle('.banner');
+    const rn = random_number(quesions.length)
+    card(quesions[rn]);
+    back_up.push(quesions.splice(rn,1));
+    next_question_number()
+    // console.log('backup questions',back_up.flat())
+    // console.log('current questions',quesions)
+
+}
+
 
 const random_number = n => {
     return Math.floor(Math.random() * n)
@@ -151,26 +175,30 @@ const correct_hidden_answer = element('.hidden-answer p');
 
 card_section.addEventListener('click', ev => {
 
+    ev.stopImmediatePropagation()
     const target = ev.target;
 
     if(target.className.includes('show-ans-btn')) hidden_answer(target);
-    else if(target.className.includes('option-answer') 
-    || target.parentElement.className.includes('option-answer')){
+    else if(target.parentElement.className.includes('option-answer') || 
+            target.className.includes('option-answer')){
 
-        correct_answer(target)
+        if(random_question.length === 0){
+
+            if(correct_answer(target)) showBanner(icons.success,msg.correct,btn_txt.next)
+            else showBanner(icons.danger,msg.wrong,btn_txt.next);
+        }
 
     }
 
 })
 
 const correct_answer = ele => {
-
+        
     if(ele.textContent == correct_hidden_answer.textContent ||
-        ele.nextElementSibling.textContent == correct_hidden_answer){
-
-        console.log(true)
-
-    }
+        ele.nextElementSibling.textContent == correct_hidden_answer.textContent)
+    {
+        return true;
+    } 
 
 }
 
@@ -197,7 +225,7 @@ const hidden_answer = ele => {
 }
 
 const card = question => {
-
+    
     let ele = ` <h5>${question.question}</h5>`;
     const result = options(question.answers);
     ele += result;
@@ -218,6 +246,7 @@ const options = answers => {
             <div class="option-answer">
             <span class="opt">${opt[i]}</span>
             <p>${answers[rn]}</p>
+            <span></span>
             </div>
         `
         answers.splice(rn,1);
@@ -225,27 +254,29 @@ const options = answers => {
     }
 
     return result;
+
 }
 
-const card_topic = element('.card-topic')
 const all_questions = data =>{
     const db = get_storage(), result = [];
 
     if(data.t === 'general'){
+
         for(let i = 0; i < data.n; i++){
             const rn = random_number(db.length)
             result.push(db[rn])
             db.splice(rn,1)
         }
-        // card_topic.innerHTML = 'general'
+
     }else{
+
         for(let i = 0; i < data.n; i++){
             const questions = db.filter(val => val.topic.includes(data.t))
             const rn = random_number(questions.length)
             result.push(questions[rn])
             db.splice(rn,1)
         }
-        // card_topic.innerHTML = data.t;
+
     }
     return result;
 }
@@ -487,7 +518,7 @@ banner.addEventListener('click', ev => {
 
     const target = ev.target;
     if(target.textContent === 'ok') hideEle('.banner');
-    else if(target.textContent === 'next') console.log('next')
+    else if(target.textContent === 'next') next_question(random_question)
 
 })
 
@@ -506,11 +537,11 @@ views.addEventListener('click',ev =>{
     ele = target.closest('.question')
 
     if(target.className.includes('edit-btn')) {
+
         form_status = 'edit';
         selected_question(id)
-    }else if (target.className.includes('delete-btn')) {
-        showEle('.caution')
-    }
+
+    }else if (target.className.includes('delete-btn')) showEle('.caution')
 
 })
 

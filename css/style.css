@@ -297,7 +297,7 @@ header{
     flex-direction: column;
 }
 
-.card-topic{
+.card-question-number{
     padding: 0.1rem 2rem;
     background-color: var(--white);
     font-size: small;
@@ -324,6 +324,7 @@ input[type="radio"]{
     color: var(--white);
     border: none;
     padding: 0.3rem 0.7rem;
+    margin-left: 0.5rem;
     font-size: small;
 }
 .card-section h5{
@@ -335,16 +336,17 @@ input[type="radio"]{
 .option-answer{
     width: 100%;
     display: flex;
-    align-items: flex-start;
-    margin: 0.5rem 0rem;
-    padding: 1rem 1rem;
+    align-items: center;
+    margin: 0.7rem 0;
     cursor: pointer;
     border: 1px solid #e8e8e8;
 }
 
 .option-answer p{
     margin-left: 20px;
-    line-height: 1rem;
+    padding: 0.7rem 0.5rem;
+    /* background: red; */
+    width: 100%;
 }
 
 .card-question{
