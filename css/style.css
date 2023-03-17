@@ -365,6 +365,7 @@ p{
 }
 
 .banner,
+.quiz-result,
 .caution{
     display: none;
     width: 100%;
@@ -372,6 +373,8 @@ p{
     position: absolute;
     top: 0;
 }
+
+
 
 .caution-btn{
     width: 100%;
@@ -386,6 +389,16 @@ p{
     display: flex;
 }
 
+.quiz-result-wrapper{
+    width: 100%;
+    height: 100%;
+    background-color: var(--transparent-black);
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: flex-start;
+}
+
 .status{
     padding: 2rem 2rem;
     width: 18rem;
@@ -397,6 +410,41 @@ p{
     align-items: center;
     background-color: var(--white);
     border-radius: 10px;
+}
+
+.quiz-result-status{
+    padding: 2rem 1rem;
+    width: 20rem;
+    /* margin: 1rem auto 0 auto; */
+    box-shadow: 1px 1px 10px var(--dark);
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--white);
+    border-radius: 10px;
+}
+.quiz-result-status:nth-child(2){
+    overflow: scroll;
+    height: 80vh;
+}
+#quiz-result-btn{
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding: 1rem 0;
+}
+.quiz-result-status button{
+    font-weight: 200;
+    margin: 0.4rem 0px;
+    padding: 0.4rem 1.65rem;
+    background-color: var(--white);
+    border: none;
+    color: var(--dark);
+    text-transform: capitalize;
+    border-radius: 2px;
+    font-weight: 400;
+    font-size: small;
 }
 
 .status i{

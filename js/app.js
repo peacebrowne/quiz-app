@@ -23,10 +23,8 @@ onload = () =>{
 }
 
 const icons = {
-
     success: 'fa-check',
     danger: 'fa-times',
-
 }
 
 const msg = {
@@ -49,10 +47,9 @@ const btn_txt ={
 
 let current_section = '.home-section';
 let previous_section;
+let form_status;
 const header = element('header');
 const views = element('.views')
-let form_status;
-
 
 /**
  * Handling click events on home section
@@ -126,45 +123,43 @@ const display_topic = topic => {
 
 let random_question;
 let count = 0;
-let back_up;
+let back_up_question;
 
 const start_quiz = ev =>{
 
     ev.preventDefault()
-    back_up = []
 
     const result = validate_quiz_form();
     if(!result) return;
     random_question = all_questions(result);
-    
-    const rn = random_number(random_question.length)
+    inintial_quiz_start()
 
+}
+
+const inintial_quiz_start = () => {
+
+    back_up_question = []
+    const rn = random_number(random_question.length)
     show_section('.card-section')
     card(random_question[rn]);
-    back_up.push(random_question.splice(rn,1));
+    back_up_question.push(random_question.splice(rn,1));
     next_question_number()
     count++;
 
 }
 
 const card_question_number = element('.card-question-number')
-
-const next_question_number = () => {
-    card_question_number.innerHTML = `<span> ${back_up.length} / ${random_question.length+back_up.length}</span>`
-}
+const next_question_number = () => card_question_number.innerHTML = `<span> ${back_up_question.length} / ${random_question.length+back_up_question.length}</span>`
 
 const next_question = quesions => {
 
     hideEle('.banner');
     const rn = random_number(quesions.length)
     card(quesions[rn]);
-    back_up.push(quesions.splice(rn,1));
+    back_up_question.push(quesions.splice(rn,1));
     next_question_number()
-    // console.log('backup questions',back_up.flat())
-    // console.log('current questions',quesions)
 
 }
-
 
 const random_number = n => {
     return Math.floor(Math.random() * n)
@@ -208,8 +203,6 @@ const correct_answer = ele => {
 
 }
 
-
-
 const hidden_answer = ele => {
 
     if( ele.dataset.value == 'show' ){
@@ -234,7 +227,8 @@ const card = question => {
     
     let ele = ` <h5>${question.question}</h5>`;
     const result = options(question.answers);
-    ele += result;
+    ele += result.r;
+    question.answers = result.a
     correct_hidden_answer.textContent = question.correctAns;
     card_body.innerHTML = ele;
 
@@ -243,6 +237,7 @@ const card = question => {
 const options = answers => {
 
     let result = '';
+    const option_backup = [];
     const opt = ['a','b','c'];
     
     for (let i = 0; i < opt.length; i++) {
@@ -255,11 +250,15 @@ const options = answers => {
             <span></span>
             </div>
         `
-        answers.splice(rn,1);
+        option_backup.push(answers.splice(rn,1));
 
     }
-
-    return result;
+    
+    answers = option_backup.flat()
+    return {
+        r: result,
+        a: answers
+    };
 
 }
 
@@ -399,8 +398,7 @@ const user_questions = data => {
         <button href="#"  class="edit-btn">Edit</button>
         <button href="#" class="delete-btn">Delete</button>
     </div>
-
-`
+    `
 }
 
 /**
@@ -503,8 +501,6 @@ const edit_question = question =>{
     }
 }
 
-
-// const banner = element('.banner .status');/
 const banner = element('.banner .wrapper');
 const showBanner = (i,msg,btn) => {
 
@@ -525,8 +521,62 @@ banner.addEventListener('click', ev => {
     const target = ev.target;
     if(target.textContent === 'ok') hideEle('.banner');
     else if(target.textContent === 'next') next_question(random_question)
+    else if(target.textContent === 'finish') quiz_finish()
+    
 
 })
+
+const quiz_result = element('.quiz-result');
+quiz_result.addEventListener('click', ev => {
+
+    const target = ev.target;
+    if(target.dataset.value === 'restart') restart_quiz()
+    else if(target.dataset.value === 'quit') quit_quiz()
+
+})
+
+const restart_quiz = () => {
+
+    hideEle('.quiz-result')
+    inintial_quiz_start()
+    current_section = '.card-section'
+    previous_section = '.quiz-form' 
+
+}
+
+const quit_quiz = () => {
+
+    hideEle('.quiz-result')
+    showEle('.quiz-form')
+    current_section = '.quiz-form'
+    previous_section = '.home-section'   
+
+}
+
+
+const quiz_finish = () => {
+
+    quiz_result.children[0].children[1].innerHTML = '';
+    hideEle('.banner');
+    hideEle('.card-section')
+    show_section('.quiz-result');
+    random_question = back_up_question.flat()
+    let i = 1;
+    
+    random_question.forEach( data => {
+
+        let div = document.createElement('div')
+        div.classList.add('question')
+
+        div.innerHTML = `
+        <h5> <strong>${i}.</strong> ${data.question}</h5>
+        <h5><strong>ans: ${data.correctAns} </strong></h5>
+        `
+        quiz_result.children[0].children[1].append(div)
+        i++
+    })
+
+}
 
 /**
  * Displaying question in user view section
